@@ -1,0 +1,40 @@
+
+
+META-INF文件夹下增加content.xml文件，内容如下：
+
+
+<?xml version='1.0' encoding='utf-8'?>
+
+<Context>
+
+	<!-- Default set of monitored resources -->
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+		
+	<Resource 
+	name="jdbc/myproject" 
+	auth="Container" 
+	type="javax.sql.DataSource"
+	maxActive="100" 
+	maxIdle="30" 
+	maxWait="10000"	
+	driverClassName="com.mysql.jdbc.Driver"
+	username="zhang"
+	password="123456" 
+	url="jdbc:mysql://localhost:3306/myproject" 
+	/>
+
+</Context>
+
+
+
+
+web.xml中配置添加如下：
+
+<resource-ref>
+    <res-ref-name>jdbc/myproject</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+
+
